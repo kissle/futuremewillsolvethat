@@ -1,0 +1,78 @@
+<h2>Initial Post</h2>
+
+<section>
+    <p>
+        So my Angular app is running and I created a simple Component to hold my Inital Post you are currently reading. 
+    </p>
+    <p>
+        The idea for this project is to start really lean and ugly and don't care about the best setup in first place. 
+        Like other ideas it neads space to grow and get more detailed. As long as I'm making progress I'm happy. 
+    </p>
+    <p>
+        The point is to get the things running one by one and document my approaches. 
+        So while this blog will help you understand how angular works it will become more detailed over time explaining how I 
+        got to the next step. 
+    </p>
+    <p>
+        That's why this page is plain html without any styling.
+    </p>
+</section>
+
+<section>
+    <h3>What I did so far</h3>
+    <p>
+        Since I feel quite limited with possibilities to nicely format everything and give detailed explanaitions I'm staying 
+        short for today only mentioning major steps  
+    </p>
+
+    <h4>Start a project using nx</h4>
+    <p>
+        <a href="https://nx.dev/angular-tutorial/01-create-application">nx</a> is a build system which provides basic features to 
+        develop <a href="https://angular.io/">Angular</a> Single Page Applications (SPA). 
+    </p>
+    <p>The command you should use is </p>
+    <code>npx create-nx-workspace@latest</code>
+    The app is called <code>blog</code>.
+    <h4>Create a new library called <code>blog-pages</code></h4>
+    <p>
+        I'm using VS Code and the <a href="https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console">nx console</a> extension.
+        It gives me handy features to generate librarys or components. 
+    </p>
+    <p>
+        Alternatively you can run this command in your termianl which should result in the same output. 
+    </p>
+    <code>npx nx generate @nrwl/angular:library blog-pages-lib --addTailwind --buildable --importPath=@futureme/blog-pages-lib --publishable --standaloneConfig --no-interactive --dry-run </code>
+
+
+    <h4>Create this InitialPostComponent</h4>
+
+    <code>npx nx generate @nrwl/angular:component initial-post --project=blog-pages-lib --module=blog-pages-lib --export --path=libs/blog-pages/src/lib/pages --no-interactive --dry-run </code>
+
+    <h4>Route to InitialPostComponent in the AppModule</h4>
+    <p>
+        In the AppModule you need first to import the InitialPostComponent from your blog-pages-lib 
+    </p>
+
+    <code>import {{ '{' }} InitialPostComponent {{ '}' }} from '@futureme/blog-pages'</code>
+
+    <p>
+        Then you need to provide the route to it in your imports by using the <code>RouterModule</code>. 
+    </p>
+    <pre><code>
+        RouterModule.forRoot([
+            {{ '{' }}
+            path: '',
+            component: InitialPostComponent
+            {{ '}' }}
+        ]) 
+    </code></pre>
+    
+    <h4>Run your server</h4>
+    <p>
+        When everything is correct you should be able to run your dev server with 
+    </p>
+
+    <code>npx nx run blog</code>
+
+
+</section>

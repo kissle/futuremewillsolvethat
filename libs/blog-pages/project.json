@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/blog-pages/src",
+  "prefix": "futuremewillsolvethat",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/blog-pages"],
+      "options": {
+        "project": "libs/blog-pages/ng-package.json",
+        "tailwindConfig": "libs/blog-pages/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/blog-pages/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/blog-pages/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/blog-pages"],
+      "options": {
+        "jestConfig": "libs/blog-pages/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/blog-pages/**/*.ts",
+          "libs/blog-pages/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
