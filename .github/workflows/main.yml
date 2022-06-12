@@ -3,12 +3,13 @@ name: Build Angular
 jobs: 
   build:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         node-version: [16.x]
 
     steps:
-      - uses: actions/checkout/@v1
+      - uses: actions/checkout@v3
 
       - name: Cache node modules
         uses: actions/cache/@v1
@@ -20,7 +21,7 @@ jobs:
       - name: Node ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with: 
-          node-version ${{ matrix.node-version }}
+          node-version: ${{ matrix.node-version }}
       - name: npm install and npm run build
         run: |
           npm i
