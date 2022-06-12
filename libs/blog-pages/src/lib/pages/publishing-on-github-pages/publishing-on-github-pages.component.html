@@ -1,0 +1,35 @@
+<h2>Publishing on Github Pages</h2>
+<section>
+    <h3>Create new Component</h3>
+    <code>npx nx generate @nrwl/angular:component publishing-on-github-pages --project=blog-pages --module=blog-pages --export --path=libs/blog-pages/src/lib/pages --no-interactive</code>
+</section>
+
+<section>
+    <h3>Setup repository on github</h3>
+    <p>
+        Just follow the instructions. You will find your way. 
+    </p>
+    <p>
+        You can find my project under 
+    </p>
+    <h3>Publish Existing Repository to Github</h3>
+    <pre><code>
+        git remote add origin git@github.com:kissle/futuremewillsolvethat.git
+        git branch -M main
+        git push -u origin main
+    </code></pre>
+
+    <p>Don't forget to setup your ssh-key since Github doesn't support password login.</p>
+</section>
+
+<section>
+    <h3>Publish With Default gh-pages Branch</h3>
+    <p>If the default branch <code>gh-pages</code> is available github will automatically choose this branch to publish your project</p>
+    <p>Alternatively you can define the branch to use yourself by navigating to <code>settings</code> and <code>pages</code>
+    under the <code>Code and Automation</code> section.</p>
+    <p>Github will puplish the <code>index.md</code> in your root folder by default</p>
+</section>
+
+<section>
+    <h3>Setup Build Process with </h3>
+</section>

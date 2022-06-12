@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import { RouterModule } from '@angular/router';
-import { InitialPostComponent } from '@futureme/blog-pages-lib';
+import { InitialPostComponent, PublishingOnGithubPagesComponent } from '@futureme/blog-pages-lib';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +15,10 @@ import { InitialPostComponent } from '@futureme/blog-pages-lib';
         {
           path: '',
           component: InitialPostComponent
+        },
+        {
+          path: 'publishing-on-github-pages',
+          component: PublishingOnGithubPagesComponent
         }
       ]
     )
